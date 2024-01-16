@@ -1,0 +1,32 @@
+[{
+  "_id": {
+    "$oid": "65a606a4846e660685a318de"
+  },
+  "name": "yefer gonzalez",
+  "message": "Hoy quiero jugar futbol",
+  "date": "15/01/2024"
+},
+{
+  "_id": {
+    "$oid": "65a61ccf846e660685a318e5"
+  },
+  "name": "Andres Lopez",
+  "message": "Bonito día hoy",
+  "date": "15/01/2024"
+},
+{
+  "_id": {
+    "$oid": "65a62f18eb6f746e888d6800"
+  },
+  "name": "yeferg1",
+  "message": "acac",
+  "date": "2024-01-16"
+},
+{
+  "_id": {
+    "$oid": "65a62fec95f64b8e997f25a4"
+  },
+  "name": "pruebas",
+  "message": "Pruebas",
+  "date": "2024-01-16"
+}]

@@ -1,0 +1,35 @@
+/* Estilos generales */
+
+.login-page {
+    display: grid;
+    place-items: center;
+    height: auto;
+  }
+  
+  .mat-card {
+    width: 300px;
+  }
+  
+  .main-title {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .register-link {
+    text-align: center;
+    margin-top: 20px; 
+  
+    a {
+      color: #007bff; 
+      text-decoration: none;
+      font-weight: bold; 
+    }
+  }
+  
+  
+  @media (max-width: 600px) {
+    .mat-card {
+      width: 80%; /* Ajusta según tus necesidades */
+    }
+  }
+  

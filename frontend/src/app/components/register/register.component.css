@@ -1,0 +1,61 @@
+.login-form-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  
+  .button-flex-container {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .mat-card-title-center {
+    text-align: center;
+  }
+
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .app-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+    background-color: #f0f0f0;
+  }
+
+  
+  .login-page {
+    text-align: center;
+  
+    .main-title {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+  
+    .login-form-flex {
+      display: inline-block;
+    }
+
+  }
+
+  .register-link {
+    margin-top: 20px;
+    font-size: 14px;
+  }
+  
+  .register-link a {
+    color: #007bff; /* Color azul para simular un enlace */
+    text-decoration: underline; /* Subrayado para simular un enlace */
+    cursor: pointer; /* Cambia el cursor al estilo de un enlace */
+    margin-left: 5px; /* Añade un pequeño espacio a la izquierda para separar del texto anterior */
+  }
+  
+  .register-link a:hover {
+    color: #0056b3; /* Cambia el color al pasar el ratón por encima */
+  }
+  
