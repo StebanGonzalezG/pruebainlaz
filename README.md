@@ -13,5 +13,10 @@ El Front se realizo con Angular en la cual contiene las siguientes acciones:
 - Iniciar sesion
 - Registro
 - Consulta de posts
-- 
+- Guards en urls
+ - Material
+
+Base de datos : Mongo
+
+El objetivo de la prueba es realizar una aplicación de redes en la cual tenga inicio de sesion,registro,seguridad, patron MVC, se utilizo material como diseño-
 
