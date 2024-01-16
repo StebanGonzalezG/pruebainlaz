@@ -19,4 +19,15 @@ export class PostsService {
     const newPost = this.postsRepository.create(postData);
     return this.postsRepository.save(newPost);
     }
+
+    async searchPosts(searchTerm: string): Promise<Posts[]> {
+      return this.postsRepository.find({
+          where: {
+              message: {
+                  $regex: searchTerm, // Utiliza una expresión regular para realizar la búsqueda
+                  $options: 'i', // Ignora mayúsculas y minúsculas
+              },
+          },
+      });
+  }
 }

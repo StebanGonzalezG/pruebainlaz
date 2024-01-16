@@ -1,4 +1,8 @@
-<!-- Segunda mat-card (que estará arriba) -->
+<mat-form-field>
+    <input type="text" matInput placeholder="Buscar" [(ngModel)]="searchTerm" (ngModelChange)="searchPosts()">
+  </mat-form-field>
+  
+  <!-- Segunda mat-card (que estará arriba) -->
  <mat-card class="example-card form-card">
     <mat-card-header>
       <mat-card-title>¿Qué estás pensando?</mat-card-title>

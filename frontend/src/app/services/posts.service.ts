@@ -32,4 +32,10 @@ export class PostsService {
   getPosts(): Observable<Post[]> {
     return this.http.get<Post[]>(this.apiUrl);
   }
+
+  searchPosts(searchTerm: string): Observable<Post[]> {
+    // Realiza la solicitud HTTP para obtener publicaciones filtradas
+    const url = `${this.apiUrl}/search?message=${searchTerm}`;
+    return this.http.get<Post[]>(url);
+  }
 }

@@ -38,7 +38,8 @@ import { MatInputModule } from '@angular/material/input';
 })
 export class PostComponent implements OnInit,OnDestroy {
   showFiller = false;
-  title = 'Card View Demo';
+  searchTerm: string = '';
+
   gridColumns = 3;
   mobileQuery: MediaQueryList;
   posts: Post[] = [];
@@ -61,6 +62,10 @@ export class PostComponent implements OnInit,OnDestroy {
   }
 
   ngOnInit(): void {
+   this.postData();
+  }
+
+  postData(){
     this.postsService.getPosts().subscribe(
       (data) => {
         console.log('Datos recibidos:', data);
@@ -80,6 +85,7 @@ export class PostComponent implements OnInit,OnDestroy {
     if (this.post.message !== '') {
       this.postsService.savePost(this.post.message, nameStorage);
       this.post.message = '';
+      this.postData();
     }
   }
 
@@ -95,5 +101,18 @@ export class PostComponent implements OnInit,OnDestroy {
 
   toggleGridColumns() {
     this.gridColumns = this.gridColumns === 3 ? 4 : 3;
+  }
+
+  searchPosts() {
+    // Llama al servicio de publicaciones con el término de búsqueda
+    this.postsService.searchPosts(this.searchTerm).subscribe(
+      (data) => {
+        console.log('Publicaciones filtradas:', data);
+        this.posts = data;
+      },
+      (error) => {
+        console.error('Error al buscar publicaciones:', error);
+      }
+    );
   }
 }
