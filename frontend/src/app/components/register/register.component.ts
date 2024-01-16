@@ -21,7 +21,11 @@ import { MatInputModule } from '@angular/material/input';
 })
 export class RegisterComponent {
   constructor(private http: HttpClient, private router: Router) {}
-  user: User = { username: '', password: '' }; // type modelo
+  user: User = {
+    username: '', password: '',
+    edad: '',
+    email: ''
+  }; // type modelo
 
   register() { 
     // Realiza la solicitud al back nest

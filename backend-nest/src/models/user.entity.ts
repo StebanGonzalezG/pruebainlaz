@@ -11,4 +11,10 @@ export class Users {
   @Column()
   password: string;
 
+  @Column()
+  email: string;
+
+  @Column()
+  edad: string;
+
 }

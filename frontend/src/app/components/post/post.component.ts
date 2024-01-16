@@ -1,3 +1,8 @@
+import { Post } from '../../models/posts.model';
+import { PostsService } from '../../services/posts.service';
+import { HttpClientModule } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
@@ -7,22 +12,14 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MediaMatcher} from '@angular/cdk/layout';
 import {MatListModule} from '@angular/material/list';
-import { Router, RouterOutlet } from '@angular/router';
+import { Router } from '@angular/router';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatInputModule } from '@angular/material/input';
-import { Post } from '../../models/posts.model';
-import { PostsService } from '../../services/posts.service';
-import { HttpClientModule } from '@angular/common/http';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { PostComponent } from '../post/post.component';
-import { InformationComponent } from '../information/information.component';
-
 @Component({
-  selector: 'app-main',
+  selector: 'app-post',
   standalone: true,
-  imports: [PostComponent,MatToolbarModule,InformationComponent,
+  imports: [MatToolbarModule,
     MatButtonModule,
     FlexLayoutModule,
      MatIconModule, 
@@ -34,16 +31,13 @@ import { InformationComponent } from '../information/information.component';
      MatCardModule,
      HttpClientModule,
      CommonModule,
-     FormsModule,
-     RouterOutlet
-    ],
-    providers: [PostsService], 
-    templateUrl: './main.component.html',
-    styleUrl: './main.component.css'
+     FormsModule],
+     providers: [PostsService],
+  templateUrl: './post.component.html',
+  styleUrl: './post.component.css'
 })
-export class MainComponent implements OnInit,OnDestroy {
+export class PostComponent implements OnInit,OnDestroy {
   showFiller = false;
-  mostrarPublicaciones: boolean = true;
   title = 'Card View Demo';
   gridColumns = 3;
   mobileQuery: MediaQueryList;
@@ -66,13 +60,6 @@ export class MainComponent implements OnInit,OnDestroy {
     this.mobileQuery.addListener(this._mobileQueryListener);
   }
 
-  cambiarContenido(ruta: string) {
-    console.log(ruta)
-    if(this.mostrarPublicaciones = ruta === 'information'){
-      this.mostrarPublicaciones = false;
-    } else ( this.mostrarPublicaciones = true )
-  }
-
   ngOnInit(): void {
     this.postsService.getPosts().subscribe(
       (data) => {
@@ -83,12 +70,12 @@ export class MainComponent implements OnInit,OnDestroy {
         console.error('Error al recibir datos:', error);
       }
     );
-
   }
 
   nameStorage: string = ''; // Declarada como propiedad
 
   savePost(){
+    console.log("ingreso"+this.post.message)
     const nameStorage = localStorage.getItem('username') || '';
     if (this.post.message !== '') {
       this.postsService.savePost(this.post.message, nameStorage);
@@ -109,5 +96,4 @@ export class MainComponent implements OnInit,OnDestroy {
   toggleGridColumns() {
     this.gridColumns = this.gridColumns === 3 ? 4 : 3;
   }
-
 }

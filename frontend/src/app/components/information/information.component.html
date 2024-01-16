@@ -1,1 +1,33 @@
-<p>information works!</p>
+<div class="center-container">
+<form class="example-form">
+    <mat-form-field class="example-full-width">
+      <mat-label>Usuario Registrado</mat-label>
+      <input matInput disabled value="Red Social">
+    </mat-form-field>
+  
+    <table class="example-full-width" cellspacing="0"><tr>
+      <td><mat-form-field class="example-full-width">
+        <mat-label> Nombre </mat-label>
+        <input matInput>{{ users.username }}
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width">
+        <mat-label> Nombre </mat-label>
+        <input matInput>{{ users.username }}
+      </mat-form-field></td>
+    </tr></table>
+  
+    <p>
+      <mat-form-field class="example-full-width">
+        <mat-label>email</mat-label>
+        <input matInput>{{ users.email }}
+      </mat-form-field>
+    </p>
+
+    <p>
+        <mat-form-field class="example-full-width">
+          <mat-label>Edad</mat-label>
+          <textarea matInput>{{ users.edad}}</textarea>
+        </mat-form-field>
+      </p>
+  </form>
+  </div>

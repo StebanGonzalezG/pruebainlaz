@@ -21,7 +21,7 @@ export class AuthService {
     return this.userModel.save(user);
   }
 
-  async login(username: string, password: string): Promise<{ access_token: string, username:string } | null> {
+  async login(username: string, password: string): Promise<{ access_token: string, username:string, email:string, edad:String } | null> {
     const user = await this.userModel.findOne({ where: { username, password } });
 
     if (user) {
@@ -29,6 +29,8 @@ export class AuthService {
       return {
         access_token: this.jwtService.sign(payload),
         username: user.username, 
+        email: user.email,
+        edad: user.edad
       };
     }
 

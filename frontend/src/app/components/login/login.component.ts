@@ -28,7 +28,11 @@ import { HttpHeaders } from '@angular/common/http';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-  user: User = { username: '', password: '' }; // type modelo
+  user: User = {
+    username: '', password: '',
+    edad: '',
+    email: ''
+  }; // type modelo
  
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -46,12 +50,14 @@ export class LoginComponent {
       'Access-Control-Allow-Origin': '*'  
     });
     
-    this.http.post<{ access_token: string, username: string }>('http://localhost:3000/auth/login', this.user, { headers, observe: 'response' }).subscribe(
+    this.http.post<{ access_token: string, username: string, email: string, edad:string }>('http://localhost:3000/auth/login', this.user, { headers, observe: 'response' }).subscribe(
     (response) => {
     if (response.body) {
       console.log('Token de acceso:', response.body.access_token);
       localStorage.setItem('access_token', response.body.access_token);
       localStorage.setItem('username', response.body.username)
+      localStorage.setItem('email', response.body.email)
+      localStorage.setItem('edad', response.body.edad)
       if(!response.body.access_token){
         console.error('Error de credenciales');
       }else {

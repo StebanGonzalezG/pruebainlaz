@@ -6,7 +6,7 @@
     <h1 class="example-app-name">Bienvenido</h1>
   
     <div class="button-container">
-      <button mat-button>Publicaciones</button> 
+      <button mat-button routerLink="/post" (click)="cambiarContenido('post')">Publicaciones</button> 
     </div>
   
     <button mat-button (click)="logout()">Cerrar Sesión</button>
@@ -18,58 +18,14 @@
                 [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
       <mat-nav-list>
         <a mat-list-item routerLink=".">Editar perfil</a>
-        <a mat-list-item routerLink=".">Información personal</a>
-        <a mat-list-item routerLink=".">Cerrar Sesion</a>
+        <a mat-list-item routerLink="/information" (click)="cambiarContenido('information')" >Información personal</a>
+        <a mat-list-item (click)="logout()">Cerrar Sesion</a>
         <!-- Agrega más elementos según sea necesario -->
       </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content style=" padding: 16px;">
-      <!-- Segunda mat-card (que estará arriba) -->
-      <mat-card class="example-card form-card">
-        <mat-card-header>
-          <mat-card-title>¿Qué estás pensando?</mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-          <!-- Aquí puedes agregar los campos del formulario -->
-          <!-- Por ejemplo, puedes usar los componentes de formularios de Angular Material -->
-          <p>
-            <mat-form-field appearance="fill" style="width: 1000px;">
-              <mat-label>Fill form field</mat-label>
-              <input matInput placeholder="Cuentanos!" [(ngModel)]="post.message">
-              <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-              <mat-hint>Cuentanos!</mat-hint>
-            </mat-form-field>
-          </p>
-          <!-- Agrega más campos según tus necesidades -->
-        </mat-card-content>
-        <mat-card-actions>
-          <!-- Botones del formulario, como Guardar o Cancelar -->
-          <button mat-button color="primary" (click)="savePost()">Publicar</button>
-          <button mat-button color="warn">Borrar</button>
-        </mat-card-actions>
-      </mat-card>
-    
-      <!-- Primera mat-card -->
-      <ng-container *ngFor="let post of posts;">
-        <div>
-          <mat-card class="example-card">
-            <mat-card-header>
-              <mat-card-subtitle>{{ post.name }}</mat-card-subtitle>
-              <mat-card-title>{{ post.message }}</mat-card-title>
-            </mat-card-header>
-            <mat-card-content>
-              <p>{{ post.date }}</p>
-              <mat-divider></mat-divider>
-            </mat-card-content>
-            <mat-card-actions>
-              <button mat-button>LIKE</button>
-              <button mat-button>SHARE</button>
-            </mat-card-actions> 
-          </mat-card>
-        </div>
-      </ng-container>
-      
-      
+      <router-outlet *ngIf="mostrarPublicaciones"></router-outlet>
+      <app-information *ngIf="!mostrarPublicaciones"></app-information>
     </mat-sidenav-content>
     
   </mat-sidenav-container>
