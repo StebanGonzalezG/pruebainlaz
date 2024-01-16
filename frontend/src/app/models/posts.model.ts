@@ -3,5 +3,6 @@ export interface Post {
   name: string;
   message: string;
   date: string;
+  like: string;
   }
   
