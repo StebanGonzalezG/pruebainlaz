@@ -1,4 +1,6 @@
 # pruebainlaz
+Arrancar Backend NestJS localhost:3000
+Angular localhost:4200
 
 Inicio: 
 

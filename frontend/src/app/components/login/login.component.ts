@@ -59,7 +59,7 @@ export class LoginComponent {
       localStorage.setItem('email', response.body.email)
       localStorage.setItem('edad', response.body.edad)
       if(!response.body.access_token){
-        console.error('Error de credenciales');
+        window.alert('Error de credenciales');
       }else {
         this.router.navigate(['/main']);
       }
